@@ -9,10 +9,11 @@ import java.util.function.Function;
 public class ChangeToCar implements Function<Integer, AutoType> {
     @Override
     public AutoType apply(Integer weight) {
-        Function<Integer, AutoType> defineType = (testingWeight)
-                -> (weight < 1500) ? AutoType.CAR : AutoType.TRUCK;
-        return defineType.apply(weight);
+        if(weight < 1500) {
+            return AutoType.CAR;
+        }
+        else return AutoType.TRUCK;
     }
-
 }
+
 
